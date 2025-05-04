@@ -1,26 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-logs
+  name: logs-generator
   namespace: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-logs
+      app: logs-generator
   template:
     metadata:
       labels:
-        app: nginx-logs
+        app: logs-generator
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - name: 
+          image: chentex/random-logger
           ports:
             - containerPort: 80
           volumeMounts:
             - mountPath: /var/log/nginx
-              name: nginx-logs
+              name: logs-generator
       volumes:
-        - name: nginx-logs
+        - name: logs-generator
           emptyDir: {}
+
