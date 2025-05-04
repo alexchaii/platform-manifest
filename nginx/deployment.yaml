@@ -14,7 +14,7 @@ spec:
         app: logs-generator
     spec:
       containers:
-        - name: 
+        - name: logs-generator
           image: chentex/random-logger
           ports:
             - containerPort: 80
